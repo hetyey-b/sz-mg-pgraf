@@ -1,0 +1,6 @@
+/home/craken/Documents/Egyetem/számgépgraf/03_SDLOGL_FW/build/CMakeFiles/myapp.dir
+/home/craken/Documents/Egyetem/számgépgraf/03_SDLOGL_FW/build/CMakeFiles/imgui.dir
+/home/craken/Documents/Egyetem/számgépgraf/03_SDLOGL_FW/build/CMakeFiles/inlobjects.dir
+/home/craken/Documents/Egyetem/számgépgraf/03_SDLOGL_FW/build/CMakeFiles/CG_PROJ.dir
+/home/craken/Documents/Egyetem/számgépgraf/03_SDLOGL_FW/build/CMakeFiles/edit_cache.dir
+/home/craken/Documents/Egyetem/számgépgraf/03_SDLOGL_FW/build/CMakeFiles/rebuild_cache.dir

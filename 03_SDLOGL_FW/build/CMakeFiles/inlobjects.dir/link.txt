@@ -1,0 +1,2 @@
+/usr/bin/ar qc libinlobjects.a CMakeFiles/inlobjects.dir/03_SDLOGL_FW/MyApp.cpp.o CMakeFiles/inlobjects.dir/03_SDLOGL_FW/main.cpp.o
+/usr/bin/ranlib libinlobjects.a

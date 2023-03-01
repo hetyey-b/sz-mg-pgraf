@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmyapp.a CMakeFiles/myapp.dir/03_SDLOGL_FW/MyApp.cpp.o
+/usr/bin/ranlib libmyapp.a
