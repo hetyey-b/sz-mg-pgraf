@@ -1,0 +1,7 @@
+/home/craken/Documents/Egyetem/számgépgraf/01_Shaders/build/CMakeFiles/myapp.dir
+/home/craken/Documents/Egyetem/számgépgraf/01_Shaders/build/CMakeFiles/imgui.dir
+/home/craken/Documents/Egyetem/számgépgraf/01_Shaders/build/CMakeFiles/callback.dir
+/home/craken/Documents/Egyetem/számgépgraf/01_Shaders/build/CMakeFiles/inlobjects.dir
+/home/craken/Documents/Egyetem/számgépgraf/01_Shaders/build/CMakeFiles/CG_PROJ.dir
+/home/craken/Documents/Egyetem/számgépgraf/01_Shaders/build/CMakeFiles/edit_cache.dir
+/home/craken/Documents/Egyetem/számgépgraf/01_Shaders/build/CMakeFiles/rebuild_cache.dir

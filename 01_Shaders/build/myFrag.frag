@@ -1,0 +1,1 @@
+/home/craken/Documents/Egyetem/számgépgraf/01_Shaders/01_Shaders/myFrag.frag
