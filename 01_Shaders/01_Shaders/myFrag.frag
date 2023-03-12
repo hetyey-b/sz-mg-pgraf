@@ -15,29 +15,30 @@ float myFunc(float t) {
 }
 
 vec4 colorize(float between0and1) {
-    vec4 col1 = vec4(1.0,0.0,0.0,1.0);
-    vec4 col2 = vec4(0.0,0.0,1.0,1.0);
+    vec4 col1 = vec4(0.0,0.0,0.2,1.0);
+    vec4 col2 = vec4(1.0,0.0,0.0,1.0);
 
     return mix(col1, col2, between0and1);
 }
 
-float manderbrot(vec2 inp) {
-    const int ITERATIONS = 1000;
-    int iteration = 0;
+float mandelbrot(vec2 inp) {
+    float tmp_real = 0.0;
+    float tmp_imag = 0.0;
+    int i = 0;
+    const int MAX_ITERATION = 10000;
 
-    float x = inp.x;
-    float y = inp.y;
-
-    while ((inp.x*inp.x) + (inp.y*inp.y) <= 2*2 && iteration < ITERATIONS) {
-        x = (inp.x*inp.x) - (inp.y*inp.y) + inp.x;
-        y = 2*inp.x*inp.y + inp.y;
-        iteration++;
+    while(tmp_real * tmp_real + tmp_imag * tmp_imag < 4.0 && i < MAX_ITERATION) {
+        float new_real = tmp_real * tmp_real - tmp_imag * tmp_imag + inp.x;
+        float new_imag = 2.0 * tmp_real * tmp_imag + inp.y;
+        tmp_real = new_real;
+        tmp_imag = new_imag;
+        i++;
     }
 
-    if (length(vec2(x,y)) < 2) {
-        return 1.0;
-    } else {
+    if (length(vec2(tmp_real, tmp_imag)) > 2.0) {
         return 0.0;
+    } else {
+        return 1.0;
     }
 }
 
@@ -55,7 +56,7 @@ void main()
     // 3. feladat
     // fs_out_col = vec4(myFunc(vs_out_normCoords.x));
 
-    vec2 iranyV = vec2(cos(radians(angle_degree)), sin(radians(angle_degree)));
+    // vec2 iranyV = vec2(cos(radians(angle_degree)), sin(radians(angle_degree)));
 
     // 4. feladat
     // fs_out_col = vec4(myFunc(dot(iranyV, vs_out_normCoords)));
@@ -64,7 +65,7 @@ void main()
     // fs_out_col = vec4(colorize(myFunc(dot(iranyV, vs_out_normCoords))));
 
     // Hazi feladat
-    fs_out_col = vec4(colorize(manderbrot(vs_out_normCoords)));
+    fs_out_col = vec4(colorize(mandelbrot(vs_out_normCoords)));
 }
 
 
