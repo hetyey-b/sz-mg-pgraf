@@ -9,6 +9,7 @@ CMyApp::CMyApp(void)
 	m_vboID = 0;
 	m_ibID  = 0;
 	m_programID = 0;
+    isWireframe = false;
 }
 
 
@@ -28,12 +29,17 @@ bool CMyApp::Init()
 	// geometria létrehozása
 	//
 
+    static const float SQRT_3_PER_2 = sqrtf(3.0f) / 2.0f;
+
 	Vertex vert[] =
 	{ 
-		{ glm::vec3( -1.0, -1.0, 0 ), glm::vec3( 1, 0, 0 ) },
-		{ glm::vec3(  1.0, -1.0, 0 ), glm::vec3( 0, 1, 0 ) },
-		{ glm::vec3( -1.0,  1.0, 0 ), glm::vec3( 0, 0, 1 ) },
-		{ glm::vec3(  1.0,  1.0, 0 ), glm::vec3( 1, 1, 1 ) }
+		{ glm::vec3( 0.0, 0.0, 0 ), glm::vec3( 1, 1, 1 ) },
+		{ glm::vec3( 1.0, 0.0, 0 ), glm::vec3( 1, 0, 0 ) },
+		{ glm::vec3( 0.5, SQRT_3_PER_2, 0 ), glm::vec3( 1, 1, 0 ) },
+		{ glm::vec3( -0.5, SQRT_3_PER_2, 0 ), glm::vec3( 0, 1, 0 ) },
+		{ glm::vec3( -1.0, 0.0, 0 ), glm::vec3( 0, 1, 1 ) },
+		{ glm::vec3( -0.5, -SQRT_3_PER_2, 0 ), glm::vec3( 0, 0, 1 ) },
+		{ glm::vec3( 0.5, -SQRT_3_PER_2, 0 ), glm::vec3( 1, 0, 1 ) },
 	};
 
 	// indexpuffer adatai
@@ -42,7 +48,11 @@ bool CMyApp::Init()
 		// 1. háromszög
 		0,1,2,
 		// 2. háromszög
-		2,1,3,
+        0,6,1,
+		0,5,6,
+        0,4,5,
+        0,3,4,
+        0,2,3,
 	};
 	
 	// 1 db VAO foglalása
@@ -158,7 +168,7 @@ void CMyApp::Render()
 
 	// kirajzolás
 	//A draw hívásokhoz a VAO és a program bindolva kell legyenek (glUseProgram() és glBindVertexArray())
-	glDrawElements( GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, 0 );
+	glDrawElements( GL_TRIANGLES, 18, GL_UNSIGNED_SHORT, 0 );
 
 	// VAO kikapcsolása
 	glBindVertexArray(0);

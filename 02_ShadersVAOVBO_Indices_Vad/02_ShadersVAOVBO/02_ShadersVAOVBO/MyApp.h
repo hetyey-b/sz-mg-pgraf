@@ -38,6 +38,8 @@ protected:
 	GLuint m_vboID; // vertex buffer object erőforrás azonosító
 	GLuint m_ibID;  // index buffer object erőforrás azonosító
 
+    bool isWireframe;
+
 	struct Vertex
 	{
 		glm::vec3 p;
