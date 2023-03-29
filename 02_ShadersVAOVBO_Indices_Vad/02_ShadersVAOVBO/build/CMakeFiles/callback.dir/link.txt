@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcallback.a CMakeFiles/callback.dir/02_ShadersVAOVBO/GLDebugMessageCallback.cpp.o
+/usr/bin/ranlib libcallback.a

@@ -1,0 +1,7 @@
+/home/craken/Documents/Egyetem/számgépgraf/02_ShadersVAOVBO_Indices_Vad/02_ShadersVAOVBO/build/CMakeFiles/myapp.dir
+/home/craken/Documents/Egyetem/számgépgraf/02_ShadersVAOVBO_Indices_Vad/02_ShadersVAOVBO/build/CMakeFiles/imgui.dir
+/home/craken/Documents/Egyetem/számgépgraf/02_ShadersVAOVBO_Indices_Vad/02_ShadersVAOVBO/build/CMakeFiles/callback.dir
+/home/craken/Documents/Egyetem/számgépgraf/02_ShadersVAOVBO_Indices_Vad/02_ShadersVAOVBO/build/CMakeFiles/inlobjects.dir
+/home/craken/Documents/Egyetem/számgépgraf/02_ShadersVAOVBO_Indices_Vad/02_ShadersVAOVBO/build/CMakeFiles/CG_PROJ.dir
+/home/craken/Documents/Egyetem/számgépgraf/02_ShadersVAOVBO_Indices_Vad/02_ShadersVAOVBO/build/CMakeFiles/edit_cache.dir
+/home/craken/Documents/Egyetem/számgépgraf/02_ShadersVAOVBO_Indices_Vad/02_ShadersVAOVBO/build/CMakeFiles/rebuild_cache.dir

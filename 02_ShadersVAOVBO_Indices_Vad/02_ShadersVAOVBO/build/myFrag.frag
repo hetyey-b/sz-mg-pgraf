@@ -1,0 +1,1 @@
+/home/craken/Documents/Egyetem/számgépgraf/02_ShadersVAOVBO_Indices_Vad/02_ShadersVAOVBO/02_ShadersVAOVBO/myFrag.frag
