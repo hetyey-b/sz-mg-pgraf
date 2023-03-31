@@ -1,0 +1,2 @@
+/usr/bin/ar qc libimgui.a CMakeFiles/imgui.dir/home/craken/Documents/Egyetem/számgépgraf/OGLPack/include/imgui/imdock.cpp.o CMakeFiles/imgui.dir/home/craken/Documents/Egyetem/számgépgraf/OGLPack/include/imgui/imgui.cpp.o CMakeFiles/imgui.dir/home/craken/Documents/Egyetem/számgépgraf/OGLPack/include/imgui/imgui_demo.cpp.o CMakeFiles/imgui.dir/home/craken/Documents/Egyetem/számgépgraf/OGLPack/include/imgui/imgui_draw.cpp.o CMakeFiles/imgui.dir/home/craken/Documents/Egyetem/számgépgraf/OGLPack/include/imgui/imgui_impl_sdl_gl3.cpp.o
+/usr/bin/ranlib libimgui.a

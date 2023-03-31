@@ -1,0 +1,7 @@
+/home/craken/Documents/Egyetem/számgépgraf/OneDrive_2023-03-30/Gyak04 3.&6. csoport (Szerda)/02_ShadersVAOVBO/build/CMakeFiles/myapp.dir
+/home/craken/Documents/Egyetem/számgépgraf/OneDrive_2023-03-30/Gyak04 3.&6. csoport (Szerda)/02_ShadersVAOVBO/build/CMakeFiles/imgui.dir
+/home/craken/Documents/Egyetem/számgépgraf/OneDrive_2023-03-30/Gyak04 3.&6. csoport (Szerda)/02_ShadersVAOVBO/build/CMakeFiles/callback.dir
+/home/craken/Documents/Egyetem/számgépgraf/OneDrive_2023-03-30/Gyak04 3.&6. csoport (Szerda)/02_ShadersVAOVBO/build/CMakeFiles/inlobjects.dir
+/home/craken/Documents/Egyetem/számgépgraf/OneDrive_2023-03-30/Gyak04 3.&6. csoport (Szerda)/02_ShadersVAOVBO/build/CMakeFiles/CG_PROJ.dir
+/home/craken/Documents/Egyetem/számgépgraf/OneDrive_2023-03-30/Gyak04 3.&6. csoport (Szerda)/02_ShadersVAOVBO/build/CMakeFiles/edit_cache.dir
+/home/craken/Documents/Egyetem/számgépgraf/OneDrive_2023-03-30/Gyak04 3.&6. csoport (Szerda)/02_ShadersVAOVBO/build/CMakeFiles/rebuild_cache.dir

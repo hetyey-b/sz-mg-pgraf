@@ -1,0 +1,21 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  )
+
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/craken/Documents/Egyetem/számgépgraf/OneDrive_2023-03-30/Gyak04 3.&6. csoport (Szerda)/02_ShadersVAOVBO/02_ShadersVAOVBO/GLDebugMessageCallback.cpp" "CMakeFiles/inlobjects.dir/02_ShadersVAOVBO/GLDebugMessageCallback.cpp.o" "gcc" "CMakeFiles/inlobjects.dir/02_ShadersVAOVBO/GLDebugMessageCallback.cpp.o.d"
+  "/home/craken/Documents/Egyetem/számgépgraf/OneDrive_2023-03-30/Gyak04 3.&6. csoport (Szerda)/02_ShadersVAOVBO/02_ShadersVAOVBO/MyApp.cpp" "CMakeFiles/inlobjects.dir/02_ShadersVAOVBO/MyApp.cpp.o" "gcc" "CMakeFiles/inlobjects.dir/02_ShadersVAOVBO/MyApp.cpp.o.d"
+  "/home/craken/Documents/Egyetem/számgépgraf/OneDrive_2023-03-30/Gyak04 3.&6. csoport (Szerda)/02_ShadersVAOVBO/02_ShadersVAOVBO/main.cpp" "CMakeFiles/inlobjects.dir/02_ShadersVAOVBO/main.cpp.o" "gcc" "CMakeFiles/inlobjects.dir/02_ShadersVAOVBO/main.cpp.o.d"
+  )
+
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")
