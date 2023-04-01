@@ -21,7 +21,7 @@ CMyApp::~CMyApp(void)
 {
 }
 
-int n = 10;
+int n = 18;
 bool CMyApp::Init()
 {
 	// törlési szín legyen kékes
@@ -31,58 +31,30 @@ bool CMyApp::Init()
 	glEnable(GL_DEPTH_TEST); // mélységi teszt bekapcsolása (takarás)
 
 
-    Vertex vert[n+1];
+    std::vector<Vertex> vert;
     
-    
-    // kozepso vertex
-    vert[0] = { glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f) };
-    
-    // kulso vertexek
-    for (int i = 0; i <= n; i++) {
+    vert.push_back({ glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f) });
+    for (int i = 1; i < n+1; i++) {
         float angle = ((float)(i-1) * 2 * M_PI) / (float)n;
         float x = cosf(angle);
         float y = sinf(angle);
-        vert[i] = { glm::vec3(x, y, 0.0f), glm::vec3((float)i/n, (float)(n-i)/n, 0.0f) };
+        vert.push_back({ glm::vec3(x, y, 0.0f), glm::vec3((float)i/n, (float)(n-i)/n, 0.0f) });
     }
     
-    GLushort indices[n*3];
-    
-    // triangle fan
-    for (int i = 0; i < n; i++) {
-        indices[i*3]   = 0;
-        indices[i*3+1] = i+1;
-        indices[i*3+2] = i+2;
-    }
-    
-    // last triangle
-    indices[(n-1)*3+2] = 2;
+    std::vector<GLushort> indices;
 
-	//
-	// geometria létrehozása
-	//
-	
-	/* static const float SQRT_3_PER_2 = sqrtf( 3.0f ) / 2.0f; */
-	/*  */
-	/* Vertex vert[] = */
-	/* { */
-	/* 	glm::vec3(  0.0,           0.0, 0.0 ), glm::vec3( 1, 1, 1 ), */
-	/* 	glm::vec3(  1.0,           0.0, 0.0 ), glm::vec3( 1, 0, 0 ), */
-	/* 	glm::vec3(  0.5,  SQRT_3_PER_2, 0.0 ), glm::vec3( 1, 1, 0 ), */
-	/* 	glm::vec3( -0.5,  SQRT_3_PER_2, 0.0 ), glm::vec3( 0, 1, 0 ), */
-	/* 	glm::vec3( -1.0,           0.0, 0.0 ), glm::vec3( 0, 1, 1 ), */
-	/* 	glm::vec3( -0.5, -SQRT_3_PER_2, 0.0 ), glm::vec3( 0, 0, 1 ), */
-	/* 	glm::vec3(  0.5, -SQRT_3_PER_2, 0.0 ), glm::vec3( 1, 0, 1 ), */
-	/* }; */
-	/*  */
-	/* GLushort indices[] = */
-	/* { */
-	/* 	0,1,2, */
-	/* 	0,2,3, */
-	/* 	0,3,4, */
-	/* 	0,4,5, */
-	/* 	0,5,6, */
-	/* 	0,6,1 */
-	/* }; */
+    /* GLushort indices[n*3]; */
+
+    for (int i = 0; i < n; i++) {
+        indices.push_back(0);
+        indices.push_back(i+1);
+        indices.push_back(i+2);
+        /* indices[i*3]   = 0; */
+        /* indices[i*3+1] = i+1; */
+        /* indices[i*3+2] = i+2; */
+    }
+
+    indices[(n-1)*3+2] = 1;
 
 	// 1 db VAO foglalása
 	glGenVertexArrays(1, &m_vaoID);
@@ -94,14 +66,14 @@ bool CMyApp::Init()
 	glBindBuffer(GL_ARRAY_BUFFER, m_vboID); // tegyük "aktívvá" a létrehozott VBO-t
 	// töltsük fel adatokkal az aktív VBO-t
 	glBufferData( GL_ARRAY_BUFFER,	// az aktív VBO-ba töltsünk adatokat
-				  sizeof(vert),		// ennyi bájt nagyságban
-				  vert,	// erről a rendszermemóriabeli címről olvasva
+				  sizeof(vert[0])*vert.size(),		// ennyi bájt nagyságban
+				  vert.data(),	// erről a rendszermemóriabeli címről olvasva
 				  GL_STATIC_DRAW);	// úgy, hogy a VBO-nkba nem tervezünk ezután írni és minden kirajzoláskor felhasnzáljuk a benne lévő adatokat
 	
 	// index puffer létrehozása
 	glGenBuffers( 1, &m_ibID );
 	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, m_ibID );
-	glBufferData( GL_ELEMENT_ARRAY_BUFFER, sizeof( indices ), indices, GL_STATIC_DRAW );
+	glBufferData( GL_ELEMENT_ARRAY_BUFFER, sizeof( indices[0] ) * indices.size(), indices.data(), GL_STATIC_DRAW );
 
 
 	// VAO-ban jegyezzük fel, hogy a VBO-ban az első 3 float sizeof(Vertex)-enként 
@@ -131,48 +103,40 @@ bool CMyApp::Init()
 	glBindBuffer(GL_ARRAY_BUFFER, 0); // feltöltöttük a VBO-t is, ezt is vegyük le
 	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, 0 ); // feltöltöttük a VBO-t is, ezt is vegyük le
 
-	// Wireframe
+	// wireframe
 	
-	glLineWidth(3.0); // Vonal rajzolásnál a vastagságot állítja.
 	
-	GLushort indicesWireframe[] =
-	{
-		0,1,1,2,2,0, // 1.hsz
-		0,2,2,3,3,0, // 2.hsz
-		0,3,3,4,4,0, // 3.hsz
-		0,4,4,5,5,0, // 4.hsz
-		0,5,5,6,6,0, // 5.hsz
-		0,6,6,1,1,0, // 6.hsz
-	};
+    std::vector<GLushort> indicesWireframe;
+
+    for (int i = 1; i <= n; i++) {
+        indicesWireframe.push_back(0);
+        indicesWireframe.push_back(i);
+        indicesWireframe.push_back(i);
+        indicesWireframe.push_back((i % n) + 1);
+        indicesWireframe.push_back((i % n) + 1);
+        indicesWireframe.push_back(0);
+    }    
 	
-	// 1 db VAO foglalása
 	glGenVertexArrays(1, &m_vaoWireframeID);
-	// a frissen generált VAO beállítasa aktívnak
 	glBindVertexArray(m_vaoWireframeID);
 	
-	// !!FIGYELEM: Ne generlájunk új VBO-t, hisz ugyan azokat a vertexeket tartalmazná.
-	// Viszont szükséges, hogy az új wireframe VAO is "tudjon róla".
-	// Az Attrib Pointerek beállításánál fontos, hogy egy VBO Bind-olva legyen!
 	glBindBuffer(GL_ARRAY_BUFFER, m_vboID); 
 	
-	// Viszont az új index buffer új adatokat tartalmaz.
 	glGenBuffers(1, &m_iboWireframeID);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_iboWireframeID);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indicesWireframe), indicesWireframe, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indicesWireframe[0]) * indicesWireframe.size(), indicesWireframe.data(), GL_STATIC_DRAW);
 	
-	// Az attribútumokat ehhez a VAOhoz is be kell állítani
-	glEnableVertexAttribArray(0); // ez lesz majd a pozíció
+	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(
-		(GLuint)0,				// a VB-ben található adatok közül a 0. "indexű" attribútumait állítjuk be
-		3,				// komponens szám
-		GL_FLOAT,		// adatok típusa
-		GL_FALSE,		// normalizált legyen-e
-		sizeof(Vertex),	// stride (0=egymás után)
-		0				// a 0. indexű attribútum hol kezdődik a sizeof(Vertex)-nyi területen belül
+		(GLuint)0,				
+		3,		
+		GL_FLOAT,
+		GL_FALSE,	
+		sizeof(Vertex),
+		0				
 	);
 	
-	// a második attribútumhoz pedig a VBO-ban sizeof(Vertex) ugrás után sizeof(glm::vec3)-nyit menve újabb 3 float adatot találunk (szín)
-	glEnableVertexAttribArray(1); // ez lesz majd a szín
+	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(
 		(GLuint)1,
 		3,
@@ -259,7 +223,7 @@ void CMyApp::Render()
 	{
 		glBindVertexArray(m_vaoWireframeID);
 		glDrawElements(GL_LINES, // Vonalakat rajzolunk
-			n * 6,
+			n*6,
 			GL_UNSIGNED_SHORT, 0);
 	}
 	else
