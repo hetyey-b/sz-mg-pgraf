@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/CG_PROJ.dir/01_Transforms/main.cpp.o -o CG_PROJ  libmyapp.a libimgui.a libcamera.a libcallback.a libinlobjects.a -L/usr/lib/x86_64-linux-gnu  -lSDL2 -lSDL2_image -lGLEW -lGL -lGLU 

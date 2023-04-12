@@ -1,0 +1,2 @@
+/usr/bin/ar qc libinlobjects.a CMakeFiles/inlobjects.dir/01_Transforms/GLDebugMessageCallback.cpp.o CMakeFiles/inlobjects.dir/01_Transforms/MyApp.cpp.o CMakeFiles/inlobjects.dir/01_Transforms/main.cpp.o
+/usr/bin/ranlib libinlobjects.a

@@ -1,0 +1,1 @@
+/home/craken/Documents/Egyetem/számgépgraf/01_Transforms_Vad/01_Transforms/01_Transforms/myFrag.frag

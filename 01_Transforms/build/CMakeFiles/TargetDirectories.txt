@@ -1,0 +1,8 @@
+/home/craken/Documents/Egyetem/számgépgraf/01_Transforms/build/CMakeFiles/myapp.dir
+/home/craken/Documents/Egyetem/számgépgraf/01_Transforms/build/CMakeFiles/imgui.dir
+/home/craken/Documents/Egyetem/számgépgraf/01_Transforms/build/CMakeFiles/camera.dir
+/home/craken/Documents/Egyetem/számgépgraf/01_Transforms/build/CMakeFiles/callback.dir
+/home/craken/Documents/Egyetem/számgépgraf/01_Transforms/build/CMakeFiles/inlobjects.dir
+/home/craken/Documents/Egyetem/számgépgraf/01_Transforms/build/CMakeFiles/CG_PROJ.dir
+/home/craken/Documents/Egyetem/számgépgraf/01_Transforms/build/CMakeFiles/edit_cache.dir
+/home/craken/Documents/Egyetem/számgépgraf/01_Transforms/build/CMakeFiles/rebuild_cache.dir
