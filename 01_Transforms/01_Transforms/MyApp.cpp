@@ -28,10 +28,16 @@ bool CMyApp::Init()
 	{
 
 		//             x,    y, z             R, G, B
-		{ glm::vec3(-1.0, -1.0, 0), glm::vec3(1, 0, 0) },
-		{ glm::vec3( 1.0, -1.0, 0), glm::vec3(0, 1, 0) },
-		{ glm::vec3(-1.0,  1.0, 0), glm::vec3(0, 0, 1) },
-		{ glm::vec3( 1.0,  1.0, 0), glm::vec3(1, 1, 1) }
+		/* { glm::vec3(-1.0, -1.0, 0), glm::vec3(1, 0, 0) }, */
+		/* { glm::vec3( 1.0, -1.0, 0), glm::vec3(0, 1, 0) }, */
+		/* { glm::vec3(-1.0,  1.0, 0), glm::vec3(0, 0, 1) }, */
+		/* { glm::vec3( 1.0,  1.0, 0), glm::vec3(1, 1, 1) }, */
+		/* { glm::vec3( 0.0,  0.0, 1.0), glm::vec3(0, 1, 0) } */
+		{ glm::vec3(-1.0,  0.0, -1.0), glm::vec3(0, 0, 0) },
+		{ glm::vec3( 1.0,  0.0, -1.0), glm::vec3(1, 0, 0) },
+		{ glm::vec3(-1.0,  0.0,  1.0), glm::vec3(0, 0, 1) },
+		{ glm::vec3( 1.0,  0.0,  1.0), glm::vec3(1, 0, 1) },
+		{ glm::vec3( 0.0,  1.0,  0.0), glm::vec3(0, 1, 0) }
 	};
 
 	// indexpuffer adatai
@@ -41,6 +47,10 @@ bool CMyApp::Init()
 		0,1,2,
 		// 2. háromszög
 		2,1,3,
+        2,3,4,
+        3,1,4,
+        0,2,4,
+        0,4,1,
 	};
 
 	// 1 db VAO foglalasa
@@ -190,7 +200,17 @@ void CMyApp::Render()
 		glm::scale<float>( glm::vec3(s_x, s_y, s_z) ) <- skálázás
 
 	*/
+    float timeElapsedInSec = SDL_GetTicks() / 1000.0f;
+
 	m_matWorld = glm::mat4(1.0f);
+
+    static const float s_radius = 0.2f;
+    static const float s_rotation = 0.2f;
+
+    float x = (s_radius * timeElapsedInSec) * cos(2.0f * M_PI * s_rotation * timeElapsedInSec);
+    float z = (s_radius * timeElapsedInSec) * sin(2.0f * M_PI * s_rotation * timeElapsedInSec);
+
+    m_matWorld = glm::translate(glm::vec3(x,0.0f,z));
 	
 	// majd küldjük át a megfelelő mátrixokat!
 	// Uniform változó bindolása csak a program bindolása után lehetséges! (glUseProgram() )
@@ -201,12 +221,11 @@ void CMyApp::Render()
 	glUniformMatrix4fv( m_loc_view,  1, GL_FALSE, &( m_matView[0][0]) );
 	glUniformMatrix4fv( m_loc_proj,  1, GL_FALSE, &( m_matProj[0][0]) );
 
-    float timeElapsedInSec = SDL_GetTicks() / 1000.0f;
     float integerPart;
     float decimalPart = std::modf(timeElapsedInSec, &integerPart);
     bool backwards = ((int)integerPart % 2) == 1;
 
-    glUniform3f(m_loc_alternativeColor,0.0f,0.0f,0.0f);
+    glUniform3f(m_loc_alternativeColor,0.5f,0.0f,0.5f);
     if (backwards) {
         glUniform1f(m_loc_colorFactor, 1-decimalPart);
     } else {
@@ -220,9 +239,54 @@ void CMyApp::Render()
 	//A draw hívásokhoz a VAO és a program bindolva kell legyenek (glUseProgram() és glBindVertexArray())
 
 	glDrawElements(GL_TRIANGLES,	   // rajzoljunk ki háromszöglista primitívet
-					6,				   // 6 indexet rajzolunk
+					18,				   // 6 indexet rajzolunk
 					GL_UNSIGNED_SHORT, // unsigned short tipusuak
 					0);			       // 0 byte offset
+
+    /* m_matWorld = glm::translate(glm::vec3(x,1.0f,z + 0.5f)); */
+
+	/* glUniformMatrix4fv( m_loc_world,// erre a helyre töltsünk át adatot */
+	/* 					1,			// egy darab mátrixot */
+	/* 					GL_FALSE,	// NEM transzponálva */
+	/* 					&(m_matWorld[0][0]) ); // innen olvasva a 16 x sizeof(float)-nyi adatot */
+	/* glUniformMatrix4fv( m_loc_view,  1, GL_FALSE, &( m_matView[0][0]) ); */
+	/* glUniformMatrix4fv( m_loc_proj,  1, GL_FALSE, &( m_matProj[0][0]) ); */
+	/*  */
+	/* glDrawElements(GL_TRIANGLES,	   // rajzoljunk ki háromszöglista primitívet */
+	/* 				18,				   // 6 indexet rajzolunk */
+	/* 				GL_UNSIGNED_SHORT, // unsigned short tipusuak */
+	/* 				0);			       // 0 byte offset */
+
+    static const glm::vec3 fleet_offsets[] = {
+        glm::vec3(5.0f, 0.0f, 0.0f),
+        glm::vec3(3.536f, 3.536f, 0.0f),
+        glm::vec3(-3.536f, 3.536f, 0.0f),
+        glm::vec3(3.536f, -3.536f, 0.0f),
+        glm::vec3(-3.536f, -3.536f, 0.0f),
+        glm::vec3(-5.0f, 0.0f, 0.0f),
+        glm::vec3(0.0f, 5.0f, 0.0f),
+        glm::vec3(0.0f, -5.0f, 0.0f),
+    };
+
+    for (glm::vec3 offset : fleet_offsets) {
+	    glm::mat4 m_tmp_matWorld = glm::mat4(1);
+
+        glUniform3f(m_loc_alternativeColor,0.0f,0.5f,0.5f);
+
+        m_tmp_matWorld = m_matWorld * glm::translate(glm::vec3(offset[0],offset[1],offset[2]));
+
+        glUniformMatrix4fv( m_loc_world,// erre a helyre töltsünk át adatot
+                1,			// egy darab mátrixot
+                GL_FALSE,	// NEM transzponálva
+                &(m_tmp_matWorld[0][0]) ); // innen olvasva a 16 x sizeof(float)-nyi adatot
+        glUniformMatrix4fv( m_loc_view,  1, GL_FALSE, &( m_matView[0][0]) );
+        glUniformMatrix4fv( m_loc_proj,  1, GL_FALSE, &( m_matProj[0][0]) );
+
+        glDrawElements(GL_TRIANGLES,	   // rajzoljunk ki háromszöglista primitívet
+                18,				   // 6 indexet rajzolunk
+                GL_UNSIGNED_SHORT, // unsigned short tipusuak
+                0);			       // 0 byte offset
+    }
 
 	// VAO kikapcsolasa
 	glBindVertexArray(0);
