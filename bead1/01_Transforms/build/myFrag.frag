@@ -1,0 +1,1 @@
+/home/craken/Documents/Egyetem/számgépgraf/bead1/01_Transforms/01_Transforms/myFrag.frag
