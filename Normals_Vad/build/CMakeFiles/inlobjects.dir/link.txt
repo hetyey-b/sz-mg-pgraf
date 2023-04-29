@@ -1,0 +1,2 @@
+/usr/bin/ar qc libinlobjects.a CMakeFiles/inlobjects.dir/Normals_Vad/MyApp.cpp.o CMakeFiles/inlobjects.dir/Normals_Vad/MyApp_InitSphereGeometry.cpp.o CMakeFiles/inlobjects.dir/Normals_Vad/main.cpp.o
+/usr/bin/ranlib libinlobjects.a

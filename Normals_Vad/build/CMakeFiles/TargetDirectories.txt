@@ -1,0 +1,7 @@
+/home/craken/Documents/Egyetem/számgépgraf/Normals_Vad/build/CMakeFiles/myapp.dir
+/home/craken/Documents/Egyetem/számgépgraf/Normals_Vad/build/CMakeFiles/imgui.dir
+/home/craken/Documents/Egyetem/számgépgraf/Normals_Vad/build/CMakeFiles/helpers.dir
+/home/craken/Documents/Egyetem/számgépgraf/Normals_Vad/build/CMakeFiles/inlobjects.dir
+/home/craken/Documents/Egyetem/számgépgraf/Normals_Vad/build/CMakeFiles/CG_PROJ.dir
+/home/craken/Documents/Egyetem/számgépgraf/Normals_Vad/build/CMakeFiles/edit_cache.dir
+/home/craken/Documents/Egyetem/számgépgraf/Normals_Vad/build/CMakeFiles/rebuild_cache.dir
