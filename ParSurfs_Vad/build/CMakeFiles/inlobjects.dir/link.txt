@@ -1,0 +1,2 @@
+/usr/bin/ar qc libinlobjects.a CMakeFiles/inlobjects.dir/ParSurfs_Vad/MyApp.cpp.o CMakeFiles/inlobjects.dir/ParSurfs_Vad/MyApp_InitParamSurfGeometry.cpp.o CMakeFiles/inlobjects.dir/ParSurfs_Vad/main.cpp.o
+/usr/bin/ranlib libinlobjects.a

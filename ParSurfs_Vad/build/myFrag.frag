@@ -1,0 +1,1 @@
+/home/craken/Documents/Egyetem/számgépgraf/ParSurfs_Vad/ParSurfs_Vad/myFrag.frag

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhelpers.a CMakeFiles/helpers.dir/ParSurfs_Vad/includes/GLDebugMessageCallback.cpp.o CMakeFiles/helpers.dir/ParSurfs_Vad/includes/gCamera.cpp.o
+/usr/bin/ranlib libhelpers.a
