@@ -190,10 +190,10 @@ CMakeFiles/inlobjects.dir/clean:
 # Target rules for target CMakeFiles/CG_PROJ.dir
 
 # All Build rule for target.
-CMakeFiles/CG_PROJ.dir/all: CMakeFiles/inlobjects.dir/all
+CMakeFiles/CG_PROJ.dir/all: CMakeFiles/myapp.dir/all
 CMakeFiles/CG_PROJ.dir/all: CMakeFiles/imgui.dir/all
 CMakeFiles/CG_PROJ.dir/all: CMakeFiles/helpers.dir/all
-CMakeFiles/CG_PROJ.dir/all: CMakeFiles/myapp.dir/all
+CMakeFiles/CG_PROJ.dir/all: CMakeFiles/inlobjects.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CG_PROJ.dir/build.make CMakeFiles/CG_PROJ.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CG_PROJ.dir/build.make CMakeFiles/CG_PROJ.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/craken/Documents/Egyetem/számgépgraf/Normals_Vad/build/CMakeFiles --progress-num=1,2 "Built target CG_PROJ"

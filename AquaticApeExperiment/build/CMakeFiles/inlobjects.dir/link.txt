@@ -1,0 +1,2 @@
+/usr/bin/ar qc libinlobjects.a CMakeFiles/inlobjects.dir/AquaticApeExperiment/MyApp.cpp.o CMakeFiles/inlobjects.dir/AquaticApeExperiment/main.cpp.o
+/usr/bin/ranlib libinlobjects.a

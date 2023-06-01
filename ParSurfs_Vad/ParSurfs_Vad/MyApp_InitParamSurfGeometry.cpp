@@ -2,6 +2,7 @@
 #include <vector>
 #include <math.h>
 
+#include <iostream>
 // egy parametrikus felület (u,v) paraméterértékekhez tartozó pontjának, normálvektorának, textura koordinatajanak
 // kiszámítását végző függvény
 
@@ -57,7 +58,92 @@ struct Sphere
 	}
 };
 
+struct Torus {
+	static glm::vec3 GetPos(float u, float v) {
+		u *= float(2 * M_PI);
+		v *= float(2 * M_PI);
 
+		float r = 1;
+        float R = 2;
+
+		return glm::vec3(
+			(R + r * cos(u)) * cos(v),
+			r * sin(u),
+			(R + r * cos(u)) * sin(v)
+		);
+    }
+	static glm::vec3 GetNorm(float u, float v) {
+		//return glm::vec3(u, v, 0.0);
+		// Képlettel
+		u *= float(2 * M_PI);
+		v *= float(2 * M_PI);
+
+		// Numerikusan (nem kell ismerni a képletet, elég a pozícióét)
+		
+		glm::vec3 du = glm::vec3(
+            -sin(u) * cos(v),
+            cos(u),
+            -sin(u) * sin(v)
+        );
+		glm::vec3 dv = glm::vec3(
+            -sin(v),
+            0,
+            cos(v)
+        );
+		// 
+		return glm::normalize(glm::cross(du, dv));
+    }
+	static glm::vec2 GetTex(float u, float v)
+	{
+		return glm::vec2( 1 - u, 1 - v);
+	}
+};
+
+struct SurfaceOfRevolution {
+    static float GetProfileFunc(float t) {
+        // t is in [0, 2*M_PI]
+        /* return sqrt(1.0 - pow(t, 2)); */
+        return cos(cos(t));
+    }
+
+    static float GetDerProfileFunc(float t) {
+        return GetProfileFunc(t + 0.01f) - GetProfileFunc(t-0.01f);
+        /* return 0.0f; */
+    }
+
+	static glm::vec3 GetPos(float u, float v) {
+		u *= float(2 * M_PI);
+		v *= float(2 * M_PI);
+
+        return glm::vec3(
+            GetProfileFunc(v) * cos(u),
+            v,
+            -GetProfileFunc(v) * sin(u)
+        );
+    }
+
+	static glm::vec3 GetNorm(float u, float v) {
+		u *= float(2 * M_PI);
+		v *= float(2 * M_PI);
+
+		glm::vec3 du = glm::vec3(
+            -sin(u),
+            0,
+            -cos(u)
+        );
+		glm::vec3 dv = glm::vec3(
+            GetDerProfileFunc(v) * cos(u),
+            1,
+            -GetDerProfileFunc(v) * sin(u)
+        );
+		// 
+		return glm::normalize(glm::cross(du, dv));
+    }
+
+	static glm::vec2 GetTex(float u, float v) {
+		return glm::vec2( 1 - u, 1 - v);
+	}
+};
 
 void CMyApp::InitParamSurfGeometry()
 {
@@ -78,9 +164,9 @@ void CMyApp::InitParamSurfGeometry()
 			float v = j / (float)M;
 
 			int index = i + j * (N + 1);
-			vert[index].p = Sphere::GetPos(u, v);
-			vert[index].n = Sphere::GetNorm(u, v);
-			vert[index].t = Sphere::GetTex(u, v);
+			vert[index].p = SurfaceOfRevolution::GetPos(u, v);
+			vert[index].n = SurfaceOfRevolution::GetNorm(u, v);
+			vert[index].t = SurfaceOfRevolution::GetTex(u, v);
 		}
 	}
 

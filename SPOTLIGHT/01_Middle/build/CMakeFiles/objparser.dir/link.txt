@@ -1,0 +1,2 @@
+/usr/bin/ar qc libobjparser.a CMakeFiles/objparser.dir/01_Middle/Mesh_OGL3.cpp.o CMakeFiles/objparser.dir/01_Middle/ObjParser_OGL3.cpp.o
+/usr/bin/ranlib libobjparser.a

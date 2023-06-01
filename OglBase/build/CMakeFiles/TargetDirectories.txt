@@ -1,0 +1,7 @@
+/home/craken/Documents/Egyetem/számgépgraf/OglBase/build/CMakeFiles/myapp.dir
+/home/craken/Documents/Egyetem/számgépgraf/OglBase/build/CMakeFiles/imgui.dir
+/home/craken/Documents/Egyetem/számgépgraf/OglBase/build/CMakeFiles/helpers.dir
+/home/craken/Documents/Egyetem/számgépgraf/OglBase/build/CMakeFiles/inlobjects.dir
+/home/craken/Documents/Egyetem/számgépgraf/OglBase/build/CMakeFiles/CG_PROJ.dir
+/home/craken/Documents/Egyetem/számgépgraf/OglBase/build/CMakeFiles/edit_cache.dir
+/home/craken/Documents/Egyetem/számgépgraf/OglBase/build/CMakeFiles/rebuild_cache.dir

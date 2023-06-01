@@ -1,0 +1,8 @@
+/home/craken/Documents/Egyetem/számgépgraf/SPOTLIGHT/01_Middle/build/CMakeFiles/myapp.dir
+/home/craken/Documents/Egyetem/számgépgraf/SPOTLIGHT/01_Middle/build/CMakeFiles/imgui.dir
+/home/craken/Documents/Egyetem/számgépgraf/SPOTLIGHT/01_Middle/build/CMakeFiles/camera.dir
+/home/craken/Documents/Egyetem/számgépgraf/SPOTLIGHT/01_Middle/build/CMakeFiles/objparser.dir
+/home/craken/Documents/Egyetem/számgépgraf/SPOTLIGHT/01_Middle/build/CMakeFiles/inlobjects.dir
+/home/craken/Documents/Egyetem/számgépgraf/SPOTLIGHT/01_Middle/build/CMakeFiles/CG_PROJ.dir
+/home/craken/Documents/Egyetem/számgépgraf/SPOTLIGHT/01_Middle/build/CMakeFiles/edit_cache.dir
+/home/craken/Documents/Egyetem/számgépgraf/SPOTLIGHT/01_Middle/build/CMakeFiles/rebuild_cache.dir

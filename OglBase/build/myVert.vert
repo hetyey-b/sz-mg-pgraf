@@ -1,0 +1,1 @@
+/home/craken/Documents/Egyetem/számgépgraf/OglBase/OglBase/myVert.vert

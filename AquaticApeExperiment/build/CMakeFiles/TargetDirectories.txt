@@ -1,0 +1,7 @@
+/home/craken/Documents/Egyetem/számgépgraf/AquaticApeExperiment/build/CMakeFiles/myapp.dir
+/home/craken/Documents/Egyetem/számgépgraf/AquaticApeExperiment/build/CMakeFiles/imgui.dir
+/home/craken/Documents/Egyetem/számgépgraf/AquaticApeExperiment/build/CMakeFiles/helpers.dir
+/home/craken/Documents/Egyetem/számgépgraf/AquaticApeExperiment/build/CMakeFiles/inlobjects.dir
+/home/craken/Documents/Egyetem/számgépgraf/AquaticApeExperiment/build/CMakeFiles/CG_PROJ.dir
+/home/craken/Documents/Egyetem/számgépgraf/AquaticApeExperiment/build/CMakeFiles/edit_cache.dir
+/home/craken/Documents/Egyetem/számgépgraf/AquaticApeExperiment/build/CMakeFiles/rebuild_cache.dir

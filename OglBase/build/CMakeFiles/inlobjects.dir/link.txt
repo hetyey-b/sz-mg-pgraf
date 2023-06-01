@@ -1,0 +1,2 @@
+/usr/bin/ar qc libinlobjects.a CMakeFiles/inlobjects.dir/OglBase/MyApp.cpp.o CMakeFiles/inlobjects.dir/OglBase/main.cpp.o
+/usr/bin/ranlib libinlobjects.a
